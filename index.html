@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/topbar.css">
+    <link rel="stylesheet" href="styles/style.css">
+
+    <title>IVANDOTDEV - Home</title>
+</head>
+
+<body>
+
+    <div id="topbar"></div>
+
+    <script>
+        fetch("topbar.html")
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("topbar").innerHTML = data;
+
+            const hamburger = document.getElementById("hamburger-btn");
+            const nav = document.getElementById("nav-links");
+
+            if (hamburger) {
+                hamburger.addEventListener("click", () => {
+                    nav.classList.toggle("open");
+                    hamburger.classList.toggle("active");
+                });
+            }
+        });
+    </script>
+
+    <div class="main-content">
+        <div class="left-content reveal-left">
+            <h1>Ivan Andales</h1>
+            <p id="typewriter"></p>
+
+            <button class="btn fade-delay">
+                <a href="#about">About Me</a>
+            </button>
+        </div>
+
+        <div class="right-content">
+            <img src="images/pf.jpg" class="profile-zoom float-image">
+        </div>
+    </div>
+
+    <section id="about">
+        <div class="content-wrapper reveal">
+            <h1>About Me</h1>
+
+            <div class="wrapper">
+                <div class="img-content reveal-left">
+                    <img src="images/profile.jpg">
+                </div>
+
+                <div class="text-content reveal-right">
+                    <p>I’m a third-year <span>BSIT</span> student with a passion for technology and creativity.
+                        I enjoy playing basketball, gaming, and exploring the art of photo editing.
+                        Known for being kind, hardworking, and a gentleman, I strive to bring positivity 
+                        and dedication to everything I do. I aspire to become a professional <span>web developer</span>
+                        and <span>IT Specialist</span>, combining my love for problem-solving with my drive 
+                        to build impactful digital solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tech-stack">
+        <div class="content-wrapper">
+            <h1 class="reveal">Tech Stack</h1>
+
+            <div class="carousel reveal">
+                <div class="group">
+                    <div class="cards"><img src="images/html.png"></div>
+                    <div class="cards"><img src="images/css.png"></div>
+                    <div class="cards"><img src="images/js.png"></div>
+                    <div class="cards"><img src="images/react.png"></div>
+                    <div class="cards"><img src="images/php.png"></div>
+                    <div class="cards"><img src="images/sql.png"></div>
+                </div>
+
+                <div class="group" aria-hidden="true">
+                    <div class="cards"><img src="images/html.png"></div>
+                    <div class="cards"><img src="images/css.png"></div>
+                    <div class="cards"><img src="images/js.png"></div>
+                    <div class="cards"><img src="images/react.png"></div>
+                    <div class="cards"><img src="images/php.png"></div>
+                    <div class="cards"><img src="images/sql.png"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const reveals = document.querySelectorAll(".reveal, .reveal-left, .reveal-right, .profile-zoom, .fade-delay");
+
+        function revealOnScroll() {
+            const trigger = window.innerHeight * 0.85;
+
+            reveals.forEach((el) => {
+                const top = el.getBoundingClientRect().top;
+                if (top < trigger) {
+                    el.classList.add("active");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealOnScroll);
+        revealOnScroll();
+
+        const text = "Web Developer";
+        let index = 0;
+
+        function typeWriter() {
+            if (index < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(index);
+                index++;
+                setTimeout(typeWriter, 120);
+            }
+        }
+        typeWriter();
+
+        window.addEventListener("DOMContentLoaded", () => {
+            document.body.classList.add("visible");
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,218 @@
+/* GLOBAL */
+* {
+    font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgb(0, 9, 22);
+    scroll-behavior: smooth;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+body.visible {
+    opacity: 1;
+}
+
+/* HERO SECTION */
+.main-content {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 150px;
+    padding: 0 5%;
+    flex-wrap: wrap;
+}
+
+.left-content h1 {
+    color: white;
+    font-size: 100px;
+    line-height: 1.1;
+}
+
+#typewriter {
+    color: #00a2ff;
+    font-size: 50px;
+    margin-top: -20px;
+    min-height: 60px;
+}
+
+/* FLOATING ANIMATION */
+.float-image {
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+@keyframes floatAnimation {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-18px); }
+    100% { transform: translateY(0px); }
+}
+
+.right-content img {
+    width: 450px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.left-content .btn {
+    height: 60px;
+    width: 150px;
+    font-size: 20px;
+    padding: 10px;
+    border: 2px solid #00a2ff;
+    border-radius: 20px;
+    color: white;
+    background: black;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.left-content .btn:hover {
+    background: #00a2ff;
+    color: black;
+}
+
+.left-content a {
+    color: white;
+    text-decoration: none;
+}
+
+
+#about {
+    padding: 60px 5%;
+    background: #001238;
+}
+
+#about h1 {
+    font-size: 42px;
+    color: white;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+#about .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+#about .img-content img {
+    width: 450px;
+    height: 450px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#about .text-content {
+    max-width: 600px;
+    font-size: 24px;
+    text-align: justify;
+    line-height: 1.6;
+    color: white;
+}
+
+#about span {
+    color: #00a2ff;
+}
+
+
+#tech-stack {
+    padding: 80px 5% 60px;
+    background: #001238;
+}
+
+#tech-stack h1 {
+    font-size: 60px;
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.group {
+    display: flex;
+    gap: 2rem;
+    animation: scroll-left 18s linear infinite;
+}
+
+.cards img {
+    width: 500px;
+    height: 400px;
+    object-fit: contain;
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+
+.reveal, .reveal-left, .reveal-right, .profile-zoom, .fade-delay {
+    opacity: 0;
+    transition: all 1s ease-out;
+}
+
+.reveal { transform: translateY(40px); }
+.reveal-left { transform: translateX(-60px); }
+.reveal-right { transform: translateX(60px); }
+.profile-zoom { transform: scale(0.8); }
+.fade-delay { transform: translateY(20px); }
+
+.reveal.active,
+.reveal-left.active,
+.reveal-right.active,
+.profile-zoom.active,
+.fade-delay.active {
+    opacity: 1;
+    transform: translate(0,0) scale(1);
+}
+
+/* RESPONSIVE BREAKPOINTS */
+@media (max-width: 1100px) {
+    .main-content { gap: 80px; }
+    .left-content h1 { font-size: 80px; }
+    #typewriter { font-size: 40px; }
+    .right-content img { width: 350px; height: 350px; }
+    #about .img-content img { width: 350px; height: 350px; }
+}
+
+@media (max-width: 900px) {
+    .main-content {
+        flex-direction: column;
+        text-align: center;
+        height: auto;
+        padding: 80px 0;
+    }
+    .left-content h1 { font-size: 60px; }
+    #typewriter { font-size: 30px; }
+    .right-content img { width: 300px; height: 300px; }
+    #about h1 { font-size: 35px; }
+    #about .img-content img { width: 280px; height: 280px; }
+    #about .text-content { font-size: 20px; }
+    .cards img { width: 150px; height: 150px; }
+}
+
+@media (max-width: 600px) {
+    .left-content h1 { font-size: 45px; }
+    #typewriter { font-size: 22px; }
+    .right-content img { width: 250px; height: 250px; }
+    #about h1 { font-size: 28px; }
+    #about .img-content img { width: 220px; height: 220px; }
+    #about .text-content { font-size: 18px; }
+    #tech-stack h1 { font-size: 32px; }
+    .cards img { width: 110px; height: 110px; }
+}

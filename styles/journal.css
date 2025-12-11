@@ -1,0 +1,104 @@
+body {
+    background-color: rgb(0, 9, 22);
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
+
+h1{
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    margin-bottom: 80px;
+
+}
+
+h5 {
+    color: white;
+    font-size: 30px;
+}
+
+p {
+    color: #c5c5c5;
+    font-size: 1rem;
+}
+
+h6 {
+    color: #00b7ff;
+    font-size: 1rem;
+}
+
+.row{
+    border-radius: 20px;
+    border: 2px solid #00a2ff;
+    padding: 20px;
+    background: rgba(0, 45, 87, 0.5);
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.9s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-left {
+    opacity: 0;
+    transform: translateX(-60px);
+    transition: all 0.9s ease-out;
+}
+
+.reveal-left.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.reveal-right {
+    opacity: 0;
+    transform: translateX(60px);
+    transition: all 0.9s ease-out;
+}
+
+.reveal-right.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+img {
+    border-radius: 12px;
+}
+
+.img-fluid {
+    max-width: 100%;
+    width: 600px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+/* Hide the second image by default */
+.img-hover-popup {
+    display: none;
+}
+
+/* When hovering over the first image, show the second image */
+.img-hover:hover + .img-hover-popup {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+/* Ensure the first image stays intact */
+.img-hover {
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+/* Optional: You can also add a scaling effect on hover */
+.img-hover:hover {
+    opacity: 0.7;
+}

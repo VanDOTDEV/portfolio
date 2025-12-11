@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS -->
+    <link 
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" 
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="styles/topbar.css">
+    <link rel="stylesheet" href="styles/gallery.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" 
+        rel="stylesheet"
+    >
+
+    <title>IVANDOTDEV - Gallery</title>
+</head>
+
+<body>
+
+    <!-- Top Navigation Bar -->
+    <div id="topbar"></div>
+
+    <script>
+        fetch("topbar.html")
+    .then(res => res.text())
+    .then(data => {
+        document.getElementById("topbar").innerHTML = data;
+
+        // MUST BE INSIDE fetch() because the elements are dynamic
+        const hamburger = document.getElementById("hamburger-btn");
+        const nav = document.getElementById("nav-links");
+
+        if (hamburger) {
+            hamburger.addEventListener("click", () => {
+                nav.classList.toggle("open");
+                hamburger.classList.toggle("active");
+            });
+        }
+    });
+
+    </script>
+
+    <section id="home">
+        <div class="main-content">
+            <div class="main-wrapper">
+
+                <div class="text-title">PHOTO GALLERY</div>
+
+                <!-- UPPER CAROUSEL (LEFT) -->
+                <div class="carousel-row left-scroll">
+                    <div class="carousel-track">
+                        <img src="images/image1.JPG" alt="">
+                        <img src="images/image2.JPG" alt="">
+                        <img src="images/image3.JPG" alt="">
+                        <img src="images/image4.JPG" alt="">
+                        <img src="images/image5.JPG" alt="">
+                        <img src="images/tour.JPG" alt="">
+                        
+                        <!-- Duplicate for seamless loop -->
+                        <img src="images/image1.JPG" alt="">
+                        <img src="images/image2.JPG" alt="">
+                        <img src="images/image3.JPG" alt="">
+                        <img src="images/image4.JPG" alt="">
+                        <img src="images/image5.JPG" alt="">
+                        <img src="images/tour.JPG" alt="">
+
+                        
+                    </div>
+                </div>
+
+                <!-- LOWER CAROUSEL (RIGHT) -->
+                <div class="carousel-row right-scroll">
+                    <div class="carousel-track">
+                        <img src="images/image6.JPG" alt="">
+                        <img src="images/image7.JPG" alt="">
+                        <img src="images/image8.JPG" alt="">
+                        <img src="images/image9.JPG" alt="">
+                        <img src="images/image10.JPG" alt="">
+                        <img src="images/tour1.JPG" alt="">
+
+                        <img src="images/image6.JPG" alt="">
+                        <img src="images/image7.JPG" alt="">
+                        <img src="images/image8.JPG" alt="">
+                        <img src="images/image9.JPG" alt="">
+                        <img src="images/image10.JPG" alt="">
+                        <img src="images/tour1.JPG" alt="">
+
+
+
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+        <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const hamburger = document.getElementById("hamburger-btn");
+    const nav = document.getElementById("nav-links");
+
+    hamburger.addEventListener("click", () => {
+        nav.classList.toggle("open");
+        hamburger.classList.toggle("active");
+    });
+
+});
+</script>
+</body>
+</html>
